@@ -1,0 +1,52 @@
+# ════════════════════════════════════════════════════════════════════════
+#  AgriRAG Assistant — requirements.txt
+#  Compatible with: Python 3.13 on Windows
+#  All packages have prebuilt wheels for cp313-win_amd64
+# ════════════════════════════════════════════════════════════════════════
+
+# ── Web framework ────────────────────────────────────────────────────────
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+python-multipart==0.0.12
+
+# ── Streamlit UI ──────────────────────────────────────────────────────────
+streamlit==1.37.0
+requests==2.32.3
+
+# ── Vector database ───────────────────────────────────────────────────────
+qdrant-client==1.9.1
+
+# ── PDF processing & chunking ─────────────────────────────────────────────
+pypdf==4.3.1
+langchain-text-splitters==0.2.1
+
+# ── PyTorch (CPU only — prebuilt wheel for Python 3.13) ──────────────────
+--extra-index-url https://download.pytorch.org/whl/cpu
+# torch==2.6.0+cpu
+torch==2.6.0+cu126
+
+# ── Tokenizer & Transformers ──────────────────────────────────────────────
+tokenizers==0.21.0
+transformers==4.47.0
+
+# ── Embeddings ────────────────────────────────────────────────────────────
+sentence-transformers==3.1.1
+
+# ── AgriParam LLM ─────────────────────────────────────────────────────────
+accelerate==0.34.0
+huggingface-hub==0.26.0
+sentencepiece==0.2.1
+
+# ── Config & utilities ────────────────────────────────────────────────────
+pydantic==2.8.0
+pydantic-settings==2.4.0
+python-dotenv==1.0.1
+tenacity==8.5.0
+
+# ── Logging ───────────────────────────────────────────────────────────────
+structlog==24.2.0
+
+# ── Testing ───────────────────────────────────────────────────────────────
+pytest==8.3.2
+pytest-asyncio==0.23.8
+httpx==0.27.0

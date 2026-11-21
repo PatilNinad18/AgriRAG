@@ -1,0 +1,34 @@
+# Environment & secrets
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Data (large files, model cache)
+data/.hf_cache/
+data/embeddings/
+data/processed/
+*.pkl
+*.pt
+*.bin
+
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

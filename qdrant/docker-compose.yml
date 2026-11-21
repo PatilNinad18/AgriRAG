@@ -1,0 +1,33 @@
+version: "3.9"
+
+# Runs a local Qdrant instance.
+# Data is persisted in ./qdrant_storage so restarts don't lose vectors.
+#
+# Usage:
+#   cd qdrant/
+#   docker compose up -d
+
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.9.2
+    container_name: agritrackr_qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333"    # REST API
+      - "6334:6334"    # gRPC (optional)
+    volumes:
+      - qdrant_storage:/qdrant/storage
+    environment:
+      # Uncomment and set if you want API key auth:
+      # QDRANT__SERVICE__API_KEY: "your-secret-key"
+      QDRANT__LOG_LEVEL: INFO
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6333/readyz"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  qdrant_storage:
+    name: agritrackr_qdrant_storage
